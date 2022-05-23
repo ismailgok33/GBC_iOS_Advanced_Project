@@ -9,14 +9,14 @@ import Foundation
 import Firebase
 
 class AuthViewModel {
-    var userSession: FirebaseAuth.User?
-    var currentUser: User?
+    @Published var userSession: FirebaseAuth.User?
+    @Published var currentUser: User?
     
     static let shared = AuthViewModel()
     
     init() {
         userSession = Auth.auth().currentUser
-        
+        fetchUser()
     }
     
     func login(withEmail email: String, password: String) {
@@ -29,6 +29,11 @@ class AuthViewModel {
             self.userSession = user
             self.fetchUser()
         }
+    }
+    
+    func signOut() {
+        self.userSession = nil
+        try? Auth.auth().signOut()
     }
     
     func register(withEmail email: String, password: String, firstname: String, lastname: String) {

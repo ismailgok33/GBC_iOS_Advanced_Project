@@ -48,8 +48,9 @@ class SignupViewController: UIViewController {
     
     @IBAction func switchToSigninButtonTapped(_ sender: UIButton) {
         if let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
-            loginVC.modalPresentationStyle = .fullScreen
-            self.present(loginVC, animated: true)
+            UIApplication.shared.windows.first?.rootViewController = loginVC
+//            loginVC.modalPresentationStyle = .fullScreen
+//            self.present(loginVC, animated: true)
         }
         
     }
