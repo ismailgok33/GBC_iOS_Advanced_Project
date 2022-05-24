@@ -1,9 +1,4 @@
-//
-//  JoinedEventListViewController.swift
-//  iOSAdvancedProject
-//
-//  Created by Ismail Gok on 2022-05-23.
-//
+
 
 import UIKit
 import Combine
@@ -32,7 +27,6 @@ class JoinedEventListViewController: UIViewController {
         
         receiveChanges()
         
-//        UserViewModel.shared.fetchJoinedEvents()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,7 +36,11 @@ class JoinedEventListViewController: UIViewController {
     // MARK: - Helpers
     
     private func configureUI() {
+        self.title = "JOINED"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutButtonTapped))
+        
+        self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.estimatedRowHeight = 150
     }
     
     private func goToLoginScreen() {
@@ -71,10 +69,6 @@ class JoinedEventListViewController: UIViewController {
         // Show Login Screen
         goToLoginScreen()
     }
-    
-    
-    // MARK: - Actions
-    
 
 }
 
@@ -97,7 +91,7 @@ extension JoinedEventListViewController: UITableViewDelegate, UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 200
+        return UITableView.automaticDimension
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

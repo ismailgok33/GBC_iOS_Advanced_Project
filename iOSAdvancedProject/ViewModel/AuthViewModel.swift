@@ -1,9 +1,3 @@
-//
-//  AuthViewModel.swift
-//  iOSAdvancedProject
-//
-//  Created by Ismail Gok on 2022-05-21.
-//
 
 import Foundation
 import Firebase
@@ -11,6 +5,7 @@ import Firebase
 class AuthViewModel {
     @Published var userSession: FirebaseAuth.User?
     @Published var currentUser: User?
+    @Published var error: String?
     
     static let shared = AuthViewModel()
     
@@ -23,10 +18,12 @@ class AuthViewModel {
         Auth.auth().signIn(withEmail: email, password: password) { result, error in
             guard let user = result?.user, error == nil else {
                 print(#function, error!.localizedDescription)
+                self.error = error!.localizedDescription
                 return
             }
             
             self.userSession = user
+            self.error = nil
             self.fetchUser()
         }
     }
@@ -46,7 +43,7 @@ class AuthViewModel {
             self.userSession = user
             
             // Upload User to Firestore DB
-            let data = ["email": email, "firstname": firstname, "lastname": lastname, "uid": user.uid]
+            let data = ["email": email, "firstname": firstname, "lastname": lastname, "joinedEvents" : [String](), "uid": user.uid] as [String : Any]
             COLLECTION_USERS.document(user.uid).setData(data) { _ in
                 print("DEBUG: User is uploaded to DB successfully")
                 self.userSession = user

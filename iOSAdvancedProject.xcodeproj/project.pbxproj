@@ -31,6 +31,7 @@
 		EC7D00AF2838BDFD00B05C84 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7D00AE2838BDFD00B05C84 /* User.swift */; };
 		EC7D00B22838BE9200B05C84 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7D00B12838BE9200B05C84 /* AuthViewModel.swift */; };
 		EC7D00B52838C26A00B05C84 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7D00B42838C26A00B05C84 /* SignupViewController.swift */; };
+		EC95C130283D512800C4F2EE /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = EC95C12F283D512800C4F2EE /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 				EC7D00A72838B91800B05C84 /* FirebaseStorage in Frameworks */,
 				EC7D00A32838B91800B05C84 /* FirebaseFirestore in Frameworks */,
 				EC7D00A52838B91800B05C84 /* FirebaseFirestoreSwift in Frameworks */,
+				EC95C130283D512800C4F2EE /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,6 +196,7 @@
 				EC7D00A22838B91800B05C84 /* FirebaseFirestore */,
 				EC7D00A42838B91800B05C84 /* FirebaseFirestoreSwift */,
 				EC7D00A62838B91800B05C84 /* FirebaseStorage */,
+				EC95C12F283D512800C4F2EE /* Kingfisher */,
 			);
 			productName = iOSAdvancedProject;
 			productReference = EC7D00862838B77B00B05C84 /* iOSAdvancedProject.app */;
@@ -225,6 +228,7 @@
 			mainGroup = EC7D007D2838B77B00B05C84;
 			packageReferences = (
 				EC7D009F2838B91800B05C84 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				EC95C12E283D512800C4F2EE /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = EC7D00872838B77B00B05C84 /* Products */;
 			projectDirPath = "";
@@ -419,7 +423,7 @@
 				DEVELOPMENT_TEAM = G3P4L7GVWA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iOSAdvancedProject/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = iOSAdvancedProject;
+				INFOPLIST_KEY_CFBundleDisplayName = Eventify;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -448,7 +452,7 @@
 				DEVELOPMENT_TEAM = G3P4L7GVWA;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = iOSAdvancedProject/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = iOSAdvancedProject;
+				INFOPLIST_KEY_CFBundleDisplayName = Eventify;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -499,6 +503,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		EC95C12E283D512800C4F2EE /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -521,6 +533,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EC7D009F2838B91800B05C84 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		EC95C12F283D512800C4F2EE /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EC95C12E283D512800C4F2EE /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

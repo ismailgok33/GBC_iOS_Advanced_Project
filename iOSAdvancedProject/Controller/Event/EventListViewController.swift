@@ -1,9 +1,3 @@
-//
-//  EventListViewController.swift
-//  iOSAdvancedProject
-//
-//  Created by Ismail Gok on 2022-05-23.
-//
 
 import UIKit
 import Combine
@@ -33,7 +27,6 @@ class EventListViewController: UIViewController {
         
         receiveChanges()
         
-//        EventViewModel.shared.fetchEvents()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,10 +36,11 @@ class EventListViewController: UIViewController {
     // MARK: - Helpers
     
     private func configureUI() {
+        self.title = "EVENTIFY"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutButtonTapped))
         
-//        self.tableView.rowHeight = UITableView.automaticDimension
-//        self.tableView.estimatedRowHeight = 150
+        self.tableView.rowHeight = UITableView.automaticDimension
+        self.tableView.estimatedRowHeight = 150
     }
     
     private func receiveChanges() {
@@ -84,9 +78,7 @@ class EventListViewController: UIViewController {
         // Show Login Screen
         goToLoginScreen()
     }
-    
-    // MARK: - Actions
- 
+
 
 }
 
@@ -111,9 +103,8 @@ extension EventListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return UITableView.automaticDimension
+        return UITableView.automaticDimension
         
-        return 200
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

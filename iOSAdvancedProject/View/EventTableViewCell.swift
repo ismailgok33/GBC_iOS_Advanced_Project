@@ -1,11 +1,8 @@
-//
-//  EventTableViewCell.swift
-//  iOSAdvancedProject
-//
-//  Created by Ismail Gok on 2022-05-23.
-//
+
 
 import UIKit
+import Kingfisher
+import FirebaseStorage
 
 class EventTableViewCell: UITableViewCell {
     
@@ -14,8 +11,9 @@ class EventTableViewCell: UITableViewCell {
     // MARK: - Outlets
     
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var numberOfPeopleGoingLabel: UILabel!
+    @IBOutlet weak var eventImage: UIImageView!
+    @IBOutlet weak var eventDate: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -32,8 +30,14 @@ class EventTableViewCell: UITableViewCell {
     
     func configureUI(event: Event) {
         self.nameLabel.text = event.name
-        self.descriptionLabel.text = event.description
+        self.eventDate.text = event.timestamp.dateValue().formatted()
         self.numberOfPeopleGoingLabel.text = "\(event.joinedUsers.count)"
+        
+        let ref = Storage.storage().reference(withPath: "/event_images/\(event.imageURL)")
+        ref.downloadURL { url, _ in
+            self.eventImage.kf.setImage(with: url)
+        }
+        
     }
     
 }

@@ -1,9 +1,3 @@
-//
-//  ViewController.swift
-//  iOSAdvancedProject
-//
-//  Created by Ismail Gok on 2022-05-21.
-//
 
 import UIKit
 import Combine
@@ -51,16 +45,32 @@ class LoginViewController: UIViewController {
                 }
             }
             .store(in: &cancellables)
+        
+        // Display an error if there is any
+        AuthViewModel.shared.$error
+            .receive(on: RunLoop.main)
+            .sink{ updatedData in
+                if let error = updatedData {
+                    self.showErrorAlert()
+                }
+            }
+            .store(in: &cancellables)
     }
     
     private func goToEventListScreen() {
-//        if let eventListNav = self.storyboard?.instantiateViewController(withIdentifier: "EventListNavigationController") as? UINavigationController {
-//            UIApplication.shared.windows.first?.rootViewController = eventListNav
-//        }
-        
         if let tabBarVC = self.storyboard?.instantiateViewController(withIdentifier: "tabBarController") as? UITabBarController {
             UIApplication.shared.windows.first?.rootViewController = tabBarVC
         }
+    }
+    
+    private func showErrorAlert() {
+        
+        let alertVC = UIAlertController(title: "Error", message: "Wrong email and/or password", preferredStyle: .alert)
+        let alertButton = UIAlertAction(title: "OK", style: .default)
+        
+        alertVC.addAction(alertButton)
+        self.present(alertVC, animated: true)
+        
     }
     
     
@@ -70,6 +80,7 @@ class LoginViewController: UIViewController {
         let password = passwordTextField.text ?? ""
         
         AuthViewModel.shared.login(withEmail: email, password: password)
+        
         
     }
     

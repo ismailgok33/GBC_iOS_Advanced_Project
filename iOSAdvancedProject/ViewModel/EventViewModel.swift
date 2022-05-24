@@ -1,9 +1,3 @@
-//
-//  EventViewModel.swift
-//  iOSAdvancedProject
-//
-//  Created by Ismail Gok on 2022-05-23.
-//
 
 import Foundation
 

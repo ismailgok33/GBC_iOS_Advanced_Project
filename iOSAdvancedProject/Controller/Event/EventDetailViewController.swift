@@ -1,20 +1,25 @@
-//
-//  EventDetailViewController.swift
-//  iOSAdvancedProject
-//
-//  Created by Ismail Gok on 2022-05-23.
-//
 
 import UIKit
+import MapKit
+import CoreLocation
+import Kingfisher
+import FirebaseStorage
 
 class EventDetailViewController: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet weak var joinEventButton: UIButton!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var eventDescription: UILabel!
+    @IBOutlet weak var eventDate: UILabel!
+    @IBOutlet weak var location: UILabel!
+    //    @IBOutlet weak var organizer: UILabel!
+    @IBOutlet weak var mapView: MKMapView!
     
     
     // MARK: - Properties
     var event: Event?
+    private let geocoder = CLGeocoder()
     
     // MARK: - Lifecycle
 
@@ -22,9 +27,28 @@ class EventDetailViewController: UIViewController {
         super.viewDidLoad()
         
         fetchEventStatus()
+        
+        configureUI()
     }
     
     // MARK: - Helpers
+    
+    private func configureUI() {
+        self.title = event?.name
+        if let event = event {
+            let ref = Storage.storage().reference(withPath: "/event_images/\(event.imageURL)")
+            ref.downloadURL { url, _ in
+                self.imageView.kf.setImage(with: url)
+            }
+            self.eventDescription.text = event.description
+            self.eventDate.text = event.timestamp.dateValue().formatted()
+//            self.organizer.text = event.organizer
+            
+            mapViewFunction(lat: event.lat, lng: event.lng)
+            ReverseGeoCode(lat: event.lat, lng: event.lng)
+            
+        }
+    }
     
     private func setEventButtonStyle(title: String, color: UIColor) {
         self.joinEventButton.setTitle(title, for: .normal)
@@ -52,9 +76,50 @@ class EventDetailViewController: UIViewController {
         }
     }
     
+    private func mapViewFunction(lat: Double, lng: Double) {
+        
+        let centerOfMapCoordinate = CLLocationCoordinate2D(latitude: lat, longitude: lng )
+        
+        let zoomLevel = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        
+        let visibleRegion = MKCoordinateRegion(center: centerOfMapCoordinate , span: zoomLevel)
+        
+        self.mapView.setRegion(visibleRegion, animated: true)
+        
+        let mapMarker = MKPointAnnotation()
+        mapMarker.coordinate = centerOfMapCoordinate
+        mapMarker.title = "Event Is Here!"
+        self.mapView.addAnnotation(mapMarker)
+    }
     
-    // MARK: - Selectors
-    
+    func ReverseGeoCode(lat: Double, lng: Double) {
+        
+        let locationToFind = CLLocation(latitude: lat, longitude: lng)
+        geocoder.reverseGeocodeLocation(locationToFind) {
+            (resultsList, error) in
+            
+            if let errors = error {
+                print("Error during the reverse geocoding: \(errors.localizedDescription)")
+                return
+            }
+            else {
+                print("Matching location found: \(resultsList!.count)")
+                let locationResult:CLPlacemark = resultsList!.first!
+                print(locationResult)
+                
+                print("Getting location data:")
+                let name = locationResult.name ?? "Not available"
+                let street = locationResult.thoroughfare ?? "Not available"
+                let city = locationResult.locality ?? "Not available"
+                let postalCode = locationResult.postalCode ?? "Not available"
+                
+                let output = "\(name), \(street), \(city), \(postalCode)"
+                print(output)
+                self.location.text = "\(output)"
+                
+            }
+        }
+    }
     
     // MARK: - Actions
     

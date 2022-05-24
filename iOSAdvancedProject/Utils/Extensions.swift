@@ -1,9 +1,3 @@
-//
-//  Extensions.swift
-//  iOSAdvancedProject
-//
-//  Created by Ismail Gok on 2022-05-24.
-//
 
 import UIKit
 

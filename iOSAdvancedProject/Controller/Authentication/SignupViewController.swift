@@ -1,9 +1,3 @@
-//
-//  SignupViewController.swift
-//  iOSAdvancedProject
-//
-//  Created by Ismail Gok on 2022-05-21.
-//
 
 import UIKit
 
@@ -15,9 +9,6 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var firstnameTextField: UITextField!
     @IBOutlet weak var lastnameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    
-    
-    // MARK: - Properties
     
     
     // MARK: - Lifecycle
