@@ -7,10 +7,12 @@
 
 import Foundation
 import FirebaseFirestoreSwift
+import Firebase
 
 struct Event: Decodable {
     @DocumentID var id: String?
     let name: String
     let description: String
     var joinedUsers: [String]
+    let timestamp: Timestamp
 }

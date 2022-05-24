@@ -75,13 +75,13 @@
         <!--Event List View Controller-->
         <scene sceneID="qR6-6g-vRi">
             <objects>
-                <viewController id="v07-Bc-Qab" customClass="EventListViewController" customModule="iOSAdvancedProject" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EventListViewController" id="v07-Bc-Qab" customClass="EventListViewController" customModule="iOSAdvancedProject" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fVO-GC-5gv">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="OXX-je-EVZ">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="eventCell" id="kIt-aW-pXJ">
@@ -111,7 +111,84 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NUy-BO-20H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1257.9710144927537" y="417.85714285714283"/>
+            <point key="canvasLocation" x="300" y="980"/>
+        </scene>
+        <!--Joined Event List View Controller-->
+        <scene sceneID="hyu-T2-bD9">
+            <objects>
+                <viewController storyboardIdentifier="JoinedEventListViewController" id="nUm-HF-b4d" customClass="JoinedEventListViewController" customModule="iOSAdvancedProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZXT-19-mUx">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="D0o-kP-IIj">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="joinedEventCell" id="QIg-bZ-FoD">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QIg-bZ-FoD" id="2GX-du-pvg">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="UYg-8P-a4A"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="UYg-8P-a4A" firstAttribute="trailing" secondItem="D0o-kP-IIj" secondAttribute="trailing" id="UHl-PB-jGm"/>
+                            <constraint firstItem="D0o-kP-IIj" firstAttribute="top" secondItem="UYg-8P-a4A" secondAttribute="top" id="bm3-qb-1PR"/>
+                            <constraint firstItem="D0o-kP-IIj" firstAttribute="leading" secondItem="UYg-8P-a4A" secondAttribute="leading" id="pgr-cF-MQ0"/>
+                            <constraint firstItem="UYg-8P-a4A" firstAttribute="bottom" secondItem="D0o-kP-IIj" secondAttribute="bottom" id="uHF-iH-kwa"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="hwL-AP-VQL"/>
+                    <connections>
+                        <outlet property="tableView" destination="D0o-kP-IIj" id="q9T-7O-xbq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n1x-RI-tPt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1316" y="980"/>
+        </scene>
+        <!--Event Detail View Controller-->
+        <scene sceneID="KyT-GL-s2O">
+            <objects>
+                <viewController storyboardIdentifier="EventDetailViewController" id="rkO-Ds-hoE" customClass="EventDetailViewController" customModule="iOSAdvancedProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ypg-Cj-O47">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dm4-Wr-3LA">
+                                <rect key="frame" x="132" y="762" width="150" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="fWu-QA-e3q"/>
+                                    <constraint firstAttribute="width" constant="150" id="vKc-5w-sFd"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Join Event"/>
+                                <connections>
+                                    <action selector="joinEventButtonTapped:" destination="rkO-Ds-hoE" eventType="touchUpInside" id="mtf-sY-AAr"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="dRM-Gp-4GH"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dRM-Gp-4GH" firstAttribute="bottom" secondItem="Dm4-Wr-3LA" secondAttribute="bottom" constant="50" id="Bdo-M7-rDf"/>
+                            <constraint firstItem="Dm4-Wr-3LA" firstAttribute="centerX" secondItem="Ypg-Cj-O47" secondAttribute="centerX" id="UP8-Lq-uu0"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="joinEventButton" destination="Dm4-Wr-3LA" id="N9t-Yd-4x6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0J8-21-0F2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="819" y="1700"/>
         </scene>
         <!--Signup View Controller-->
         <scene sceneID="1S7-so-hXB">
@@ -195,10 +272,30 @@
             </objects>
             <point key="canvasLocation" x="-674" y="849"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Tab Bar Controller-->
+        <scene sceneID="FgF-09-TJj">
+            <objects>
+                <tabBarController storyboardIdentifier="tabBarController" id="Wsg-fD-Eoc" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="PUi-BJ-hCT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" systemColor="systemGray3Color"/>
+                        <color key="selectedImageTintColor" systemColor="systemTealColor"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="4m5-NA-JTw" kind="relationship" relationship="viewControllers" id="r7w-F3-db7"/>
+                        <segue destination="54v-aA-XZs" kind="relationship" relationship="viewControllers" id="2ak-Wl-1E8"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kum-p7-QXy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="829" y="-569"/>
+        </scene>
+        <!--Events-->
         <scene sceneID="K7c-ui-hYk">
             <objects>
                 <navigationController storyboardIdentifier="EventListNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="4m5-NA-JTw" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Events" image="calendar" catalog="system" id="fo0-Qa-fH5"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Sak-6p-Qwg">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -211,12 +308,39 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Fw-xN-poF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="347.82608695652175" y="417.85714285714283"/>
+            <point key="canvasLocation" x="301" y="183"/>
+        </scene>
+        <!--Joined-->
+        <scene sceneID="NDo-A4-M6C">
+            <objects>
+                <navigationController storyboardIdentifier="JoinedEventListNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="54v-aA-XZs" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Joined" image="star.fill" catalog="system" id="NXN-KL-tyN"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hQO-6G-NUe">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="nUm-HF-b4d" kind="relationship" relationship="rootViewController" id="PLp-rp-CxL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="48I-aH-XFZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1317" y="183"/>
         </scene>
     </scenes>
     <resources>
+        <image name="calendar" catalog="system" width="128" height="106"/>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

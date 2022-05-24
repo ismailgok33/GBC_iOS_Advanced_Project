@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EC456041283C6C0400829DCD /* JoinedEventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC456040283C6C0400829DCD /* JoinedEventListViewController.swift */; };
+		EC456045283C74C500829DCD /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC456044283C74C500829DCD /* UserViewModel.swift */; };
+		EC456047283C8DA800829DCD /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC456046283C8DA800829DCD /* EventDetailViewController.swift */; };
+		EC456049283CAC7F00829DCD /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC456048283CAC7F00829DCD /* Extensions.swift */; };
 		EC5A455C283B4B1A00EFBDC2 /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5A455B283B4B1A00EFBDC2 /* EventListViewController.swift */; };
 		EC5A4561283B4E2D00EFBDC2 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5A4560283B4E2D00EFBDC2 /* Event.swift */; };
 		EC5A4564283B4E4E00EFBDC2 /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC5A4562283B4E4E00EFBDC2 /* EventTableViewCell.swift */; };
@@ -30,6 +34,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EC456040283C6C0400829DCD /* JoinedEventListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinedEventListViewController.swift; sourceTree = "<group>"; };
+		EC456044283C74C500829DCD /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		EC456046283C8DA800829DCD /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
+		EC456048283CAC7F00829DCD /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		EC5A455B283B4B1A00EFBDC2 /* EventListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewController.swift; sourceTree = "<group>"; };
 		EC5A4560283B4E2D00EFBDC2 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		EC5A4562283B4E4E00EFBDC2 /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
@@ -69,6 +77,8 @@
 			isa = PBXGroup;
 			children = (
 				EC5A455B283B4B1A00EFBDC2 /* EventListViewController.swift */,
+				EC456040283C6C0400829DCD /* JoinedEventListViewController.swift */,
+				EC456046283C8DA800829DCD /* EventDetailViewController.swift */,
 			);
 			path = Event;
 			sourceTree = "<group>";
@@ -94,7 +104,6 @@
 			children = (
 				EC7D00A92838BCE200B05C84 /* Model */,
 				EC7D00A82838BCD500B05C84 /* Controller */,
-				EC5A455A283B4A6800EFBDC2 /* Event */,
 				EC7D00B02838BE8600B05C84 /* ViewModel */,
 				EC7D00AA2838BCEA00B05C84 /* View */,
 				EC7D00AB2838BCF000B05C84 /* Utils */,
@@ -112,6 +121,7 @@
 		EC7D00A82838BCD500B05C84 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				EC5A455A283B4A6800EFBDC2 /* Event */,
 				EC7D00B32838C24100B05C84 /* Authentication */,
 			);
 			path = Controller;
@@ -139,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				EC7D00AC2838BD7700B05C84 /* Constants.swift */,
+				EC456048283CAC7F00829DCD /* Extensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -148,6 +159,7 @@
 			children = (
 				EC7D00B12838BE9200B05C84 /* AuthViewModel.swift */,
 				EC5A4566283B5BB600EFBDC2 /* EventViewModel.swift */,
+				EC456044283C74C500829DCD /* UserViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -243,6 +255,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC456041283C6C0400829DCD /* JoinedEventListViewController.swift in Sources */,
 				EC7D008E2838B77B00B05C84 /* LoginViewController.swift in Sources */,
 				EC7D00B52838C26A00B05C84 /* SignupViewController.swift in Sources */,
 				EC7D008A2838B77B00B05C84 /* AppDelegate.swift in Sources */,
@@ -251,8 +264,11 @@
 				EC7D00B22838BE9200B05C84 /* AuthViewModel.swift in Sources */,
 				EC7D008C2838B77B00B05C84 /* SceneDelegate.swift in Sources */,
 				EC5A455C283B4B1A00EFBDC2 /* EventListViewController.swift in Sources */,
+				EC456045283C74C500829DCD /* UserViewModel.swift in Sources */,
+				EC456049283CAC7F00829DCD /* Extensions.swift in Sources */,
 				EC7D00AF2838BDFD00B05C84 /* User.swift in Sources */,
 				EC5A4564283B4E4E00EFBDC2 /* EventTableViewCell.swift in Sources */,
+				EC456047283C8DA800829DCD /* EventDetailViewController.swift in Sources */,
 				EC7D00AD2838BD7700B05C84 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

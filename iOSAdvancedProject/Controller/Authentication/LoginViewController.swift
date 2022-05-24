@@ -54,8 +54,12 @@ class LoginViewController: UIViewController {
     }
     
     private func goToEventListScreen() {
-        if let eventListNav = self.storyboard?.instantiateViewController(withIdentifier: "EventListNavigationController") as? UINavigationController {
-            UIApplication.shared.windows.first?.rootViewController = eventListNav
+//        if let eventListNav = self.storyboard?.instantiateViewController(withIdentifier: "EventListNavigationController") as? UINavigationController {
+//            UIApplication.shared.windows.first?.rootViewController = eventListNav
+//        }
+        
+        if let tabBarVC = self.storyboard?.instantiateViewController(withIdentifier: "tabBarController") as? UITabBarController {
+            UIApplication.shared.windows.first?.rootViewController = tabBarVC
         }
     }
     
@@ -72,8 +76,6 @@ class LoginViewController: UIViewController {
     @IBAction func SwitchToSignupButtonTapped(_ sender: UIButton) {
         if let singupVC = self.storyboard?.instantiateViewController(withIdentifier: "SignupViewController") as? SignupViewController {
             UIApplication.shared.windows.first?.rootViewController = singupVC
-            //            singupVC.modalPresentationStyle = .fullScreen
-//            self.present(singupVC, animated: true)
         }
     }
     

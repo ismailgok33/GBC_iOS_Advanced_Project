@@ -13,4 +13,5 @@ struct User: Decodable {
     let email: String
     let firstname: String
     let lastname: String
+    var joinedEvents: [String]
 }
